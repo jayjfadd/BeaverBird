@@ -50,8 +50,25 @@ BeaverBird.screen = function() {
 }
 
 BeaverBird.browser = function() {
+
+  //console.log('navigator.userAgent:\n%s\n', navigator.userAgent);
+
+  //  in my experience, browser versions change too frequently to provide accurate fingerprints week-to-week
+  //  what if we just kept the brand names?
+  
+  //  remove numbers, dots, parentheses, underscores, commas, semicolons
+  var pattern = /[0-9\/\.()_,;]/g;
+  var filteredUA = navigator.userAgent.replace(pattern, '');
+
+  //  remove double spaces
+  pattern = /\s\s+/g;
+  filteredUA = filteredUA.replace(pattern, ' ');
+
+  //console.log('filtered ua: %s', JSON.stringify(filteredUA));
+
   return {
-    userAgent: navigator.userAgent,
+    //userAgent: navigator.userAgent,//userAgents release versions change too frequently
+    userAgent: filteredUA,
     cookies: navigator.cookieEnabled,
     java: navigator.javaEnabled(),
     dnt: navigator.doNotTrack, // might be null, "unspecified", undefined if false
