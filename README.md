@@ -1,3 +1,11 @@
+Forkin' differences
+========
+
+Browser versions change frequently enough that fingerprints are different every few weeks.  Could we get better long-term tracking if we just kept the brand names?  This version of Beaverbird strips away numbers to do just that.
+See the browser() method on the Beaverbird object for changes.
+
+
+
 Beaverbird
 ========
 
