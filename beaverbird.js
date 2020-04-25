@@ -52,7 +52,7 @@ BeaverBird.screen = function() {
 BeaverBird.browser = function() {
 
   var rawUA = navigator.userAgent;
-  console.log('raw ua:\n%s', rawUA);
+  if(this.DEBUG) console.log('raw ua:\n%s', rawUA);
 
   //  in my experience, browser versions change too frequently to provide accurate fingerprints week-to-week
   //  what if we just kept the brand names?
@@ -65,7 +65,7 @@ BeaverBird.browser = function() {
   pattern = /\s\s+/g;
   filteredUA = filteredUA.replace(pattern,' ');
 
-  console.log('filtered ua: %s', JSON.stringify(filteredUA));
+  if(this.DEBUG) console.log('filtered ua: %s', JSON.stringify(filteredUA));
 
   return {
     //userAgent: navigator.userAgent,
